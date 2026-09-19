@@ -1,0 +1,55 @@
+{
+  "description": "Training configuration for specific iteration behaviors",
+  "iteration_configs": [
+    {
+      "start_iteration": 0,
+      "end_iteration": 10001,
+      "gaussian_num": false,
+      "texture_rendering": false,
+      "uncertainty": false,
+      "gaussian_update": true,
+      "_comment": "Ambient lighting learning stage"
+    },
+    {
+      "start_iteration": 10001,
+      "end_iteration": 20000,
+      "gaussian_num": false,
+      "texture_rendering": true,
+      "uncertainty": false,
+      "gaussian_update": false,
+      "_comment": "Lighting-only learning stage"
+    },
+    {
+      "start_iteration": 20001,
+      "end_iteration": 35000,
+      "gaussian_num": false,
+      "texture_rendering": true,
+      "uncertainty": false,
+      "gaussian_update": true,
+      "_comment": "Joint geometry and lighting learning stage"
+    },
+    {
+      "start_iteration": 35000,
+      "end_iteration": -1,
+      "gaussian_num": false,
+      "texture_rendering": true,
+      "uncertainty": false,
+      "gaussian_update": true,
+      "_comment": "Joint geometry and lighting learning stage"
+    }
+  ],
+  "special_operations": {
+    "light_computation": {
+      "iteration": 7000,
+      "enabled": false
+    },
+    "image_saving": {
+      "iterations": [10000, 15000, 20000, 25000, 30000],
+      "enabled": true
+    }
+  },
+  "regularization": {
+    "lambda_normal_start_iteration": 3000,
+    "lambda_dist_start_iteration": 3000
+  }
+}
